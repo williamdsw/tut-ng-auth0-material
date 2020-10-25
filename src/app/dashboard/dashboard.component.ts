@@ -15,39 +15,35 @@ export class DashboardComponent implements OnInit {
 
   // FIELDS
 
-  displayedColumns: string[] = ['date_posted', 'title', 'category', 'delete'];
+  displayedColumns: string[] = [
+    'date_posted', 'title', 'body', 'category', 'delete'
+  ];
   dataSource = new PostDataSource (this.dataService);
 
   // CONSTRUCTOR
 
   constructor(
     private dataService: DataService,
-    public dialog: MatDialog, 
+    public dialog: MatDialog
   ) { }
 
   // LIFECYCLE HOOKS
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // HELPER FUNCTIONS
 
-  public deletePost(id:number) {
+  public deletePost(id: number) {
     this.dataService.deletePost (id);
     this.dataSource = new PostDataSource (this.dataService);
   }
 
   public openDialog(): void {
-    let dialogRef = this.dialog.open (PostDialogComponent, {
-      width: '600px', data: 'Add Post'
-    });
+    const dialogRef = this.dialog.open (PostDialogComponent, { width: '600px', data: 'Add Post' });
 
-    dialogRef.componentInstance.eventEmitter.subscribe ((result) => {
+    dialogRef.componentInstance.eventEmitter.subscribe ((result: any) => {
       this.dataService.addPost (result.data);
       this.dataSource = new PostDataSource (this.dataService);
     });
   }
-
-
-
 }

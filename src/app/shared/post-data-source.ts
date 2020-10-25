@@ -19,7 +19,5 @@ export class PostDataSource extends DataSource<any> {
         return this.dataService.getPosts ();
     }
 
-    disconnect() {
-
-    }
+    disconnect() {}
 }

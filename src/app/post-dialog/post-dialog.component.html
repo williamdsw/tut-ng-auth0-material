@@ -1,32 +1,38 @@
-<h1 mat-dialog-title> {{ data }} </h1>
 
-<div mat-dialog-content>
-    <form class="example-form" (ngSubmit)="onSubmit ();">
+<section>
+    <header>
+        <h1 mat-dialog-title> {{ data }} </h1>
+    </header>
 
-        <!-- title -->
-        <mat-form-field>
-            <input type="text" name="name" placeholder="Title" required matInput [(ngModel)]="post.title">
-        </mat-form-field>
+    <div mat-dialog-content>
+        <form class="example-form" (ngSubmit)="onSubmit ();">
+    
+            <!-- title -->
+            <mat-form-field>
+                <input type="text" name="name" placeholder="Title" required matInput [(ngModel)]="post.title">
+            </mat-form-field>
+    
+            <!-- body -->
+            <mat-form-field>
+                <textarea name="body" placeholder="Body" required matInput [(ngModel)]="post.body"></textarea>
+            </mat-form-field>
+    
+            <!-- category -->
+            <mat-form-field>
+                <mat-select name="category" placeholder="Category" required matInput [(ngModel)]="post.category">
+                    <mat-option *ngFor="let category of categories;" [value]="category.value">
+                        {{ category.viewValue }}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+    
+            <!-- submit -->
+            <button type="submit" mat-raised-button color="primary"> Save </button>
+        </form>
+    </div>
+    
+    <div mat-dialog-actions>
+        <button class="close" mat-raised-button color="warn" (click)="onCancel ();"> Cancel </button>
+    </div>
 
-        <!-- body -->
-        <mat-form-field>
-            <textarea name="body" placeholder="Body" required matInput [(ngModel)]="post.body"></textarea>
-        </mat-form-field>
-
-        <!-- category -->
-        <mat-form-field>
-            <mat-select name="category" placeholder="Category" required matInput [(ngModel)]="post.category">
-                <mat-option *ngFor="let category of categories;" [value]="category.value">
-                    {{ category.viewValue }}
-                </mat-option>
-            </mat-select>
-        </mat-form-field>
-
-        <!-- submit -->
-        <button type="submit" mat-raised-button color="primary"> Save </button>
-    </form>
-</div>
-
-<div mat-dialog-actions>
-    <button class="close" mat-raised-button color="warn" (click)="onCancel ();"> Cancel </button>
-</div>
+</section>

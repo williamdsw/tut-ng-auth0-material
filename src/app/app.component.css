@@ -1,3 +1,4 @@
+
 mat-sidenav-container, mat-sidenav-content, mat-sidenav {
     height: 100%;
 }
@@ -26,10 +27,9 @@ a:hover, a:active {
     display: inline-block;
     height: 30px;
     margin: 0 auto;
-    padding-right: 5px;
+    padding: 5px;
     text-align: center;
     vertical-align: middle;
-    width: 15%;
 }
 
 .label {

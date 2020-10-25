@@ -1,19 +1,21 @@
 
-<div>
-    <br>
-    <div class="container">
+<article>
+    <section>
+        <br>
         <div class="container">
-            <div class="content" fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center">
-                <div class="blocks">
-                    <button type="submit" mat-raised-button color="primary" (click)="openDialog ();">
-                        <mat-icon>add</mat-icon> Add Post
-                    </button>
+            <div class="container">
+                <div class="content" fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row" fxLayoutAlign="space-around center">
+                    <div class="blocks">
+                        <button type="submit" mat-raised-button color="primary" (click)="openDialog ();">
+                            <mat-icon>add</mat-icon> Add Post
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <br>
-    <div class="container">
+    </section>
+
+    <section class="container">
         <div class="content" fxLayout="row" fxLayoutAlign="center center">
             <mat-card class="card">
                 <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
@@ -33,6 +35,12 @@
                             <ng-container matColumnDef="title">
                                 <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
                                 <mat-cell *matCellDef="let element"> {{ element.title }} </mat-cell>
+                            </ng-container>
+
+                            <!-- title -->
+                            <ng-container matColumnDef="body">
+                                <mat-header-cell *matHeaderCellDef> Body </mat-header-cell>
+                                <mat-cell *matCellDef="let element"> {{ element.body }} </mat-cell>
                             </ng-container>
 
                             <!-- category -->
@@ -58,5 +66,5 @@
                 </mat-card-content>
             </mat-card>
         </div>
-    </div>
-</div>
+    </section>
+</article>

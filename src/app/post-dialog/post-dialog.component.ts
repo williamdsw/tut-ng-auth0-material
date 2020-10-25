@@ -1,6 +1,8 @@
 import { Component, OnInit, EventEmitter, Inject } from '@angular/core';
-import { Post } from '../models/post';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+import { Post } from '../models/post';
+
 import { DataService } from '../data/data.service';
 
 @Component({
@@ -33,8 +35,7 @@ export class PostDialogComponent implements OnInit {
 
   // LIFECYCLE HOOKS
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   // HELPER FUNCTIONS
 
@@ -47,5 +48,4 @@ export class PostDialogComponent implements OnInit {
     this.eventEmitter.emit ({ data: this.post });
     this.dialogRef.close ();
   }
-
 }
